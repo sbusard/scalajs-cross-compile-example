@@ -12,7 +12,10 @@ lazy val root = project.in(file(".")).
 lazy val foo = crossProject.in(file(".")).
   settings(
     name := "foo",
-    version := "0.1-SNAPSHOT"
+    version := "0.1-SNAPSHOT",
+    libraryDependencies ++= Seq(
+      "org.scalatest" %%% "scalatest" % "3.0.5" % "test" withSources() withJavadoc()
+    )
   ).
   jvmSettings(
     // Add JVM-specific settings here
